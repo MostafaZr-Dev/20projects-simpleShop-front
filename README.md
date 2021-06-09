@@ -1,34 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 20 PROJECTS CHALLENG
 
-## Getting Started
+**Project 4 - Products And Shopping Cart**
 
-First, run the development server:
+![enter image description here](https://s19.picofile.com/file/8436020576/details.JPG)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![enter image description here](https://s19.picofile.com/file/8436020592/cart.JPG)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### backend-repo-link
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+[server-repository](https://github.com/MostafaZr-Dev/20projects-4-simpleShop-server)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### admin-panel-link
+[front-repository](https://github.com/MostafaZr-Dev/20projects-4-simpleShop-adminPanel)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Technologies
 
-## Learn More
+- nextjs
+- context-api
+- chakra-ui
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- manage products ( create | update | delete )
+- products list
+- shopping cart with redis ( add-to-cart | update-item-quantity | delete-cart-item )
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## How start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- yarn install
+- yarn dev
