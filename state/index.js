@@ -25,7 +25,12 @@ export const AppStateProvider = ({ children }) => {
           },
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if(!err.response.data.status === 401){
+          storageService.removeItem("cartToken");
+        }
+        console.log(err);
+      });
   }, []);
 
   return (

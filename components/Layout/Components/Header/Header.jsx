@@ -1,23 +1,28 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Spacer,
-  Button,
-  Badge,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Button, Badge, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Icon } from "@chakra-ui/react";
 import { HiShoppingCart } from "react-icons/hi";
 
 import { useAppState } from "state";
+import Search from "components/Search";
 
 function Header({ title }) {
   const { state } = useAppState();
+  const router = useRouter();
 
   const cartCount = state.cart.products?.length || 0;
+
+  const setSearchQuery = (query) => {
+    console.log(query);
+    router.push({
+      query: {
+        ...router.query,
+        q: query,
+      },
+    });
+  };
 
   return (
     <Box w="100%" h="80px" backgroundColor="#0c4271">
@@ -28,7 +33,7 @@ function Header({ title }) {
       <Flex
         direction="row"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="space-between"
         w="100%"
         pr={4}
         pl={4}
@@ -37,7 +42,9 @@ function Header({ title }) {
         <Heading color="#fff" size="md">
           {title}
         </Heading>
-        <Spacer />
+        <Box>
+          <Search onSearch={setSearchQuery} />
+        </Box>
         <Link href="/cart">
           <Button backgroundColor="transparent" position="relative">
             <Icon as={HiShoppingCart} color="#fff" boxSize="2em" />

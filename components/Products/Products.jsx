@@ -1,12 +1,21 @@
-import { Stack, useToast } from "@chakra-ui/react";
+import { useCallback } from "react";
+import { useToast, Wrap, WrapItem, Text, Flex } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 import ProductItem from "./Components/ProductItem";
+import OrderBy from "./Components/OrderBy";
 import { useAppState } from "state";
 import httpService from "services/httpService";
 import * as storageService from "services/storageService";
+import {
+  addSimpleQuery,
+  stringifyQuery,
+  parseQuery,
+} from "services/queryString";
 
 function products({ data }) {
   const toast = useToast();
+  const router = useRouter();
 
   const { dispatch } = useAppState();
 
@@ -54,6 +63,23 @@ function products({ data }) {
       .catch((err) => console.log(err));
   };
 
+  const handleChangeOrder = (value) => {
+    const query = addSimpleQuery(router.query, "sortby", value);
+
+    router.push({
+      pathname: router.pathname,
+      query,
+    });
+  };
+
+  const getAppliedOrder = useCallback(() => {
+    const query = parseQuery(stringifyQuery(router.query));
+
+    const { sortby } = query;
+
+    return sortby ? sortby : null;
+  }, [router.query]);
+
   const renderProducts = data.map((product) => (
     <ProductItem
       id={product.id}
@@ -62,24 +88,29 @@ function products({ data }) {
       imgSrc={product.thumbnail}
       price={product.price}
       discountedPrice={product.discountedPrice}
+      soldCount={product.soldCount}
+      category={product.category.title}
+      likes={product.likes}
       onAddToCart={(e) => {
         handleAddToCart(product);
       }}
     />
   ));
 
+  const defaultOrder = getAppliedOrder();
+
   return (
-    <Stack
-      direction="row"
-      wrap="wrap"
-      justifyContent="center"
-      spacing={8}
-      w="100%"
-      pt={10}
-      pb={10}
-    >
-      {renderProducts}
-    </Stack>
+    <Flex w="full" direction="column" p={3}>
+      <OrderBy defaultValue={defaultOrder} onChange={handleChangeOrder} />
+      <Wrap w="full" spacing={5}>
+        {data.length === 0 && (
+          <WrapItem w="full">
+            <Text>محصولی پیدا نشد!</Text>
+          </WrapItem>
+        )}
+        {data.length > 0 && <> {renderProducts} </>}
+      </Wrap>
+    </Flex>
   );
 }
 

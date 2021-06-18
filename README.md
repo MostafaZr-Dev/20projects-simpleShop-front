@@ -1,6 +1,8 @@
 # 20 PROJECTS CHALLENG
 
-**Project 4 - Products And Shopping Cart**
+**Project 4,5 - Products And Shopping Cart(with filter)**
+
+![enter image description here](https://s18.picofile.com/file/8436871918/front.JPG)
 
 ![enter image description here](https://s19.picofile.com/file/8436020576/details.JPG)
 
@@ -22,8 +24,10 @@
 ## Features
 
 - manage products ( create | update | delete )
+- manage category ( create )
 - products list
 - shopping cart with redis ( add-to-cart | update-item-quantity | delete-cart-item )
+- filter product (range_price | order | category | search(by_title))
 
 
 ## How start

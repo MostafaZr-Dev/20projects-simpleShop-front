@@ -1,9 +1,14 @@
 import httpService from "./httpService";
 
-export const getAllProduct = async () => {
-  const response = await httpService.get("/products");
+export const getAllProduct = async (params) => {
+  const response = await httpService.get("/products", {
+    params,
+  });
 
-  return response.data.products;
+  return {
+    data: response.data.products,
+    maxPrice: response.data.maxPrice,
+  };
 };
 
 export const getProductByID = async (id) => {
@@ -12,7 +17,10 @@ export const getProductByID = async (id) => {
 
     return response.data.product;
   } catch (error) {
-    
     return null;
   }
+};
+
+export const getFilteredProducts = async (query) => {
+  return httpService.get(`/products?${query}`);
 };
