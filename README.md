@@ -1,6 +1,6 @@
 # 20 PROJECTS CHALLENG
 
-**Project 4,5 - Products And Shopping Cart(with filter)**
+**Project 4,5,6 - Products And Shopping Cart(filter-ordering)**
 
 ![enter image description here](https://s4.uupload.ir/files/profile_ugx6.jpg)
 
