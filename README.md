@@ -2,6 +2,8 @@
 
 **Project 4,5 - Products And Shopping Cart(with filter)**
 
+![enter image description here](https://s4.uupload.ir/files/profile_ugx6.jpg)
+
 ![enter image description here](https://s18.picofile.com/file/8436871918/front.JPG)
 
 ![enter image description here](https://s19.picofile.com/file/8436020576/details.JPG)
@@ -13,6 +15,7 @@
 [server-repository](https://github.com/MostafaZr-Dev/20projects-4-simpleShop-server)
 
 ### admin-panel-link
+
 [admin-panel-repository](https://github.com/MostafaZr-Dev/20projects-4-simpleShop-adminPanel)
 
 ## Technologies
@@ -28,7 +31,7 @@
 - products list
 - shopping cart with redis ( add-to-cart | update-item-quantity | delete-cart-item )
 - filter product (range_price | order | category | search(by_title))
-
+- ordering (create_order)
 
 ## How start
 

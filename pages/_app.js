@@ -4,6 +4,7 @@ import RtlProvider from "utils/RTL-Provider";
 import AppProvider from "utils/AppProvider";
 import { AppStateProvider } from "state";
 import Loader from "components/Loader";
+import InitApp from "components/InitApp";
 
 function App(props) {
   const { Component, pageProps } = props;
@@ -12,8 +13,10 @@ function App(props) {
     <AppProvider>
       <RtlProvider>
         <AppStateProvider>
-          <Loader />
-          <Component {...pageProps} />
+          <InitApp>
+            <Loader />
+            <Component {...pageProps} />
+          </InitApp>
         </AppStateProvider>
       </RtlProvider>
     </AppProvider>

@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Icon } from "@chakra-ui/react";
-import { HiShoppingCart } from "react-icons/hi";
+import { HiShoppingCart, HiUserCircle } from "react-icons/hi";
 
 import { useAppState } from "state";
 import Search from "components/Search";
@@ -45,22 +45,31 @@ function Header({ title }) {
         <Box>
           <Search onSearch={setSearchQuery} />
         </Box>
-        <Link href="/cart">
-          <Button backgroundColor="transparent" position="relative">
-            <Icon as={HiShoppingCart} color="#fff" boxSize="2em" />
-            <Badge
-              ml="1"
-              fontSize="0.8em"
-              colorScheme="green"
-              position="absolute"
-              top="2px"
-              left="10px"
-              borderRadius="50%"
-            >
-              <Text>{cartCount}</Text>
-            </Badge>
-          </Button>
-        </Link>
+        <Box>
+          <Link href="/cart">
+            <Button backgroundColor="transparent" position="relative">
+              <Icon as={HiShoppingCart} color="#fff" boxSize="2em" />
+              <Badge
+                ml="1"
+                fontSize="0.8em"
+                colorScheme="green"
+                position="absolute"
+                top="2px"
+                left="10px"
+                borderRadius="50%"
+              >
+                <Text>{cartCount}</Text>
+              </Badge>
+            </Button>
+          </Link>
+          {state.user && (
+            <Link href="/profile">
+              <Button backgroundColor="transparent" position="relative">
+                <Icon as={HiUserCircle} color="#fff" boxSize="2em" />
+              </Button>
+            </Link>
+          )}
+        </Box>
       </Flex>
     </Box>
   );

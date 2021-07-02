@@ -217,6 +217,15 @@ function Cart() {
           </Flex>
         </Flex>
       </Flex>
+      {state.cart && state.cart.products.length > 0 && (
+        <Flex w="full" justifyContent="center" mt={8}>
+          <Box>
+            <Link href="/checkout">
+              <Button colorScheme="blue">بررسی سفارش</Button>
+            </Link>
+          </Box>
+        </Flex>
+      )}
     </>
   );
 }

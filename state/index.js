@@ -26,8 +26,14 @@ export const AppStateProvider = ({ children }) => {
         });
       })
       .catch((err) => {
-        if(!err.response.data.status === 401){
+        if (err.response.data.status == 401) {
           storageService.removeItem("cartToken");
+          dispatch({
+            type: "INIT_CART",
+            payload: {
+              cart: [],
+            },
+          });
         }
         console.log(err);
       });

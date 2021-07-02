@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -10,22 +9,7 @@ import Layout from "components/Layout";
 import Filter from "components/Filter";
 
 function Index({ products, maxPrice, categories }) {
-  // const [productsList, setProductsList] = useState(products);
-
   const router = useRouter();
-
-  // useEffect(() => {
-  //   const query = new URLSearchParams(router.query).toString();
-  //   console.log(query);
-  //   if (query) {
-  //     console.log(router.query);
-  //     getFilteredProducts(query)
-  //       .then((res) => {
-  //         setProductsList(res.data.products);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // }, [router.query]);
 
   return (
     <Layout title="محصولات">
