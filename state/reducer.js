@@ -20,6 +20,15 @@ const reducer = (state = initState, action) => {
       storageService.setItem("cart", JSON.stringify(action.payload.cart));
 
       break;
+    case "EMPTY_CART":
+      state = {
+        ...state,
+        cart: [],
+      };
+
+      storageService.setItem("cart", JSON.stringify([]));
+
+      break;
     case "UPDATE_CART":
       state = {
         ...state,

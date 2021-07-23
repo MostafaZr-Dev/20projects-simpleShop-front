@@ -17,7 +17,7 @@ function Address({ items }) {
     </Checkbox>
   ));
   return (
-    <Stack spacing={5} p={4} direction="column">
+    <Stack spacing={5} p={4} direction="column" boxShadow="md">
       <Heading as="h5" size="sm">
         انتخاب آدرس
       </Heading>
